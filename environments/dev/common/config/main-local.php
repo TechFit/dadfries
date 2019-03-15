@@ -1,5 +1,6 @@
 <?php
 return [
+    'name' => 'Папа Жарит CRM',
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
