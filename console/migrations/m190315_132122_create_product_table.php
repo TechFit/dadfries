@@ -22,7 +22,7 @@ class m190315_132122_create_product_table extends Migration
             'photo_path' => $this->string()->null(),
             'status' => $this->smallInteger()->defaultValue(10),
             'created_at' => $this->integer()->null(),
-        ]);
+        ], 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB');
     }
 
     /**

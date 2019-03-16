@@ -38,9 +38,18 @@ class ProductController extends Controller
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $type = Yii::$app->request->get('type');
+
+        if (in_array($type, Product::listOfProducts())) {
+            $title = Product::listOfProducts()[$type];
+        } else {
+            $title = Yii::t('app', 'Продукты');
+        }
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'title' => $title,
         ]);
     }
 
@@ -57,14 +66,17 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Product model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Product();
+
+        $type = Yii::$app->request->get('type');
+
+        if (array_key_exists($type, Product::listOfProducts())) {
+            $model->type = $type;
+        } else {
+            throw new NotFoundHttpException(Yii::t('app', 'Вы не выбрали тип продукта, вернитесь на главную страницу.'));
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

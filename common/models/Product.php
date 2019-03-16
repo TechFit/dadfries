@@ -67,4 +67,14 @@ class Product extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
+
+    public static function listOfProducts(): array
+    {
+        return [
+            self::PRODUCT_TYPE_BURGER => Yii::t('app', 'Бургеры'),
+            self::PRODUCT_TYPE_DRINK => Yii::t('app', 'Напитки'),
+            self::PRODUCT_TYPE_FRYER => Yii::t('app', 'Закуски'),
+            self::PRODUCT_TYPE_EUROPE_GOODS => Yii::t('app', 'Сладости из Европы'),
+        ];
+    }
 }
