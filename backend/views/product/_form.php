@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'photo_base_url')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'photo_path')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'photo')->widget(\trntv\filekit\widget\Upload::class, [
+        'url' => ['upload-photo']
+    ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

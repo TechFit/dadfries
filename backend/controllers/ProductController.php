@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use Intervention\Image\ImageManagerStatic;
+use trntv\filekit\actions\DeleteAction;
+use common\components\actions\UploadAction;
 use Yii;
 use common\models\Product;
 use common\models\search\ProductSearch;
@@ -30,6 +33,31 @@ class ProductController extends Controller
     }
 
     /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'upload-photo' => [
+                'class' => UploadAction::class,
+                'deleteRoute' => 'delete-photo',
+                'validationRules' => [
+                    ['file', 'file', 'extensions' => ['png', 'jpg', 'jpeg']],
+                ],
+                'on afterSave' => function ($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img = ImageManagerStatic::make($file->read())->fit(350, 350);
+                    $file->put($img->encode());
+                }
+            ],
+            'delete-photo' => [
+                'class' => DeleteAction::class
+            ]
+        ];
+    }
+
+    /**
      * Lists all Product models.
      * @return mixed
      */
@@ -40,7 +68,7 @@ class ProductController extends Controller
 
         $type = Yii::$app->request->get('type');
 
-        if (in_array($type, Product::listOfProducts())) {
+        if (array_key_exists($type, Product::listOfProducts())) {
             $title = Product::listOfProducts()[$type];
         } else {
             $title = Yii::t('app', 'Продукты');

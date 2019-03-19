@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Product;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -7,7 +8,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Product */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Product::listOfProducts()[$model->type], 'url' => ['index', 'type' => $model->type]];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -26,19 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'type',
-            'title',
-            'description',
-            'price',
-            'photo_base_url:url',
-            'photo_path',
-            'status',
-            'created_at',
-        ],
-    ]) ?>
-
+    <div>
+        <?= Html::img($model->getPhoto(), ['style' => 'width:100px;']);?>
+    </div>
+    <div>
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'title',
+                'description',
+                'created_at:datetime',
+            ],
+        ]) ?>
+    </div>
 </div>

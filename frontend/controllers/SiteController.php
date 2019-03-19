@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Product;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -26,17 +27,12 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['index'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['index'],
                         'allow' => true,
                         'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
                     ],
                 ],
             ],
@@ -72,7 +68,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index', []);
+        $products = self::prepareProducts(Product::find()->where(['status' => Product::STATUS_ACTIVE])->asArray()->all());
+
+        return $this->render('index', [
+            'products' => $products,
+        ]);
     }
 
     /**
@@ -83,5 +83,37 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    private function prepareProducts(array $products): array
+    {
+        $products['burgers'] = [];
+        $products['drinks'] = [];
+        $products['fryer'] = [];
+        $products['europe'] = [];
+
+        foreach ($products AS $key => $product) {
+
+            switch ($product['type']) {
+                case Product::PRODUCT_TYPE_BURGER:
+                    $products['burgers'][] = $product;
+                    unset($products[$key]);
+                    break;
+                case Product::PRODUCT_TYPE_DRINK:
+                    $products['drinks'][] = $product;
+                    unset($products[$key]);
+                    break;
+                case Product::PRODUCT_TYPE_FRYER:
+                    $products['fryer'][] = $product;
+                    unset($products[$key]);
+                    break;
+                case Product::PRODUCT_TYPE_EUROPE_GOODS:
+                    $products['europe'][] = $product;
+                    unset($products[$key]);
+                    break;
+            }
+        }
+
+        return $products;
     }
 }

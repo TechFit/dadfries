@@ -15,9 +15,23 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.2.0",
+        "ext-intl": "*",
+        "ext-gd": "*",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "yiisoft/yii2-queue": "^2.0",
+        "trntv/yii2-file-kit": "^1.0.0",
+        "trntv/yii2-glide": "^1.2",
+        "trntv/yii2-datetime-widget": "dev-master@dev",
+        "intervention/image": "^2.1",
+        "bower-asset/font-awesome": "^4.0",
+        "bower-asset/html5shiv": "^3.0",
+        "bower-asset/flot": "^0.8",
+        "kartik-v/yii2-widget-select2": "dev-master",
+        "npm-asset/bootbox": "^4.4",
+        "kartik-v/yii2-date-range": "^1.6",
+        "2amigos/yii2-chartjs-widget": "^2.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

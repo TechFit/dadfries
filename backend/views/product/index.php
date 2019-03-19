@@ -9,6 +9,7 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = $title;
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-index">
@@ -17,25 +18,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Product', ['create', 'type' => Yii::$app->request->get('type')], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Добавить'), ['create', 'type' => Yii::$app->request->get('type')], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'type',
             'title',
             'description',
             'price',
-            //'photo_base_url:url',
-            //'photo_path',
-            //'status',
-            //'created_at',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
