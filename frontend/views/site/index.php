@@ -1,7 +1,8 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $products \common\models\Product */
+/* @var $products array */
+/* @var $product \common\models\Product */
 
 $this->title = Yii::t('app', 'Папа Жарит');
 ?>
@@ -29,7 +30,6 @@ $this->title = Yii::t('app', 'Папа Жарит');
                         </div>
                     </div>
                     <div class="col-md-12 d-flex align-items-center">
-
                         <div class="tab-content ftco-animate" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
                                     <? $b = 0; ?>
@@ -37,20 +37,37 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                         <? $b = 0; ?>
                                         <div class="row">
                                     <? endif ?>
-                                        <? foreach ($products['burgers'] AS $product): ?>
-                                            <div class="col-md-4 text-center">
-                                                <div class="menu-wrap">
-                                                    <a href="#" class="menu-img img mb-4" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
-                                                    <div class="text">
-                                                        <h3><a href="#"><?= $product['title'] ?></a></h3>
-                                                        <p><?= $product['description'] ?></p>
-                                                        <p class="price"><span><?= $product['price'] ?> р.</span></p>
-                                                        <p><a href="#" class="btn btn-primary btn-outline-primary">Добавить в корзину</a></p>
+                                        <? if (!empty($products['burgers'])): ?>
+                                            <? foreach ($products['burgers'] AS $product): ?>
+                                                <div id="product-<?=$product['id']?>" class="col-md-4 text-center product-col">
+                                                    <div class="menu-wrap">
+                                                        <a href="#" class="menu-img img mb-4" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
+                                                        <div class="text">
+                                                            <h3><a href="#"><?= $product['title'] ?></a></h3>
+                                                            <p><?= $product['description'] ?></p>
+                                                            <p class="price"><span><?= $product['price'] ?> р.</span></p>
+                                                            <p>
+                                                                <button data-attr="add-<?=$product['id']?>" data-id="<?=$product['id']?>" class="add-to-cart btn btn-primary btn-outline-primary">Добавить в корзину</button>
+                                                                <div data-attr="product-buttons" style="display: none">
+                                                                    <div data-attr="plus">
+                                                                        +
+                                                                    </div>
+                                                                    <div data-attr="count">
+                                                                        0
+                                                                    </div>
+                                                                    <div data-attr="minus">
+                                                                        -
+                                                                    </div>
+                                                                </div>
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <? $b++; ?>
-                                        <? endforeach; ?>
+                                                <? $b++; ?>
+                                            <? endforeach; ?>
+                                        <? else: ?>
+                                            <?= Yii::t('app', 'Уточните, пожалуйста, по телефону.')?>
+                                        <? endif ?>
                                         </div>
                                     <? if ($b %3 != 0): ?>
                                     <? endif ?>

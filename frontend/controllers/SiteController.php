@@ -85,30 +85,30 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    private function prepareProducts(array $products): array
+    private function prepareProducts(array $items): array
     {
         $products['burgers'] = [];
         $products['drinks'] = [];
         $products['fryer'] = [];
         $products['europe'] = [];
 
-        foreach ($products AS $key => $product) {
+        foreach ($items AS $key => $item) {
 
-            switch ($product['type']) {
+            switch ($item['type']) {
                 case Product::PRODUCT_TYPE_BURGER:
-                    $products['burgers'][] = $product;
+                    $products['burgers'][] = $item;
                     unset($products[$key]);
                     break;
                 case Product::PRODUCT_TYPE_DRINK:
-                    $products['drinks'][] = $product;
+                    $products['drinks'][] = $item;
                     unset($products[$key]);
                     break;
                 case Product::PRODUCT_TYPE_FRYER:
-                    $products['fryer'][] = $product;
+                    $products['fryer'][] = $item;
                     unset($products[$key]);
                     break;
                 case Product::PRODUCT_TYPE_EUROPE_GOODS:
-                    $products['europe'][] = $product;
+                    $products['europe'][] = $item;
                     unset($products[$key]);
                     break;
             }
