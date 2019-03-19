@@ -48,16 +48,16 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                                             <p class="price"><span><?= $product['price'] ?> р.</span></p>
                                                             <p>
                                                                 <button data-attr="add-<?=$product['id']?>" data-id="<?=$product['id']?>" class="add-to-cart btn btn-primary btn-outline-primary">Добавить в корзину</button>
-                                                                <div data-attr="product-buttons" style="display: none">
-                                                                    <div data-attr="plus">
+                                                                <div data-attr="product-buttons" style="display: none" data-id="<?=$product['id']?>">
+                                                                    <button data-attr="plus">
                                                                         +
-                                                                    </div>
+                                                                    </button>
                                                                     <div data-attr="count">
                                                                         0
                                                                     </div>
-                                                                    <div data-attr="minus">
+                                                                    <button data-attr="minus">
                                                                         -
-                                                                    </div>
+                                                                    </button>
                                                                 </div>
                                                             </p>
                                                         </div>
