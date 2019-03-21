@@ -41,21 +41,21 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                             <? foreach ($products['burgers'] AS $product): ?>
                                                 <div id="product-<?=$product['id']?>" class="col-md-4 text-center product-col">
                                                     <div class="menu-wrap">
-                                                        <a href="#" class="menu-img img mb-4" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
+                                                        <a href="#" class="menu-img img mb-4" data-img="<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
                                                         <div class="text">
                                                             <h3><a href="#"><?= $product['title'] ?></a></h3>
                                                             <p><?= $product['description'] ?></p>
-                                                            <p class="price"><span><?= $product['price'] ?> р.</span></p>
+                                                            <p class="price"><span><?= $product['price'] ?></span><span> р.</span></p>
                                                             <p>
-                                                                <button data-attr="add-<?=$product['id']?>" data-id="<?=$product['id']?>" class="add-to-cart btn btn-primary btn-outline-primary">Добавить в корзину</button>
+                                                                <button id="add-to-cart-<?=$product['id']?>" data-attr="add-<?=$product['id']?>" data-id="<?=$product['id']?>" class="add-to-cart btn btn-primary btn-outline-primary">Добавить в корзину</button>
                                                                 <div data-attr="product-buttons" style="display: none" data-id="<?=$product['id']?>">
-                                                                    <button data-attr="plus">
+                                                                    <button data-attr="plus" data-id="<?=$product['id']?>">
                                                                         +
                                                                     </button>
                                                                     <div data-attr="count">
                                                                         0
                                                                     </div>
-                                                                    <button data-attr="minus">
+                                                                    <button data-attr="minus" data-id="<?=$product['id']?>">
                                                                         -
                                                                     </button>
                                                                 </div>

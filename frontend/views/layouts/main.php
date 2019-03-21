@@ -66,7 +66,7 @@ AppAsset::register($this);
                                             </path>
                                         </svg>
                                     </div>
-                                    <div class="dp-button-cart__price-block">0.00 р.</div>
+                                    <div class="dp-button-cart__price-block">0 р.</div>
                                     <div class="dp-button-cart__text-block">
                                         <a href="cart.html"><span>Заказать</span></a>
                                     </div>
@@ -145,7 +145,9 @@ AppAsset::register($this);
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
 <!--<script src="js/google-map.js"></script>-->
 <script src="js/main.js"></script>
-<script src="js/5gfw.js"></script>
+<script src="js/Cart.js"></script>
+<script src="js/Cookie.js"></script>
+<script src="js/Order.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>
