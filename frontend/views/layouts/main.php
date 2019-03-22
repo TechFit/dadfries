@@ -57,7 +57,7 @@ AppAsset::register($this);
                 <li class="nav-item"><a href="menu.html" class="nav-link">Оставить отзыв</a></li>
                 <li class="nav-item">
                     <div class="dp-header__item no-ma">
-                        <div class="dp-cart-item">
+                        <div class="dp-cart-item dp-cart-item--opened">
                             <div class="dp-cart-wrapper">
                                 <div class="dp-button-cart">
                                     <div class="dp-button-cart__icon-wrap">
@@ -66,9 +66,9 @@ AppAsset::register($this);
                                             </path>
                                         </svg>
                                     </div>
-                                    <div class="dp-button-cart__price-block">0 р.</div>
+                                    <div class="dp-button-cart__price-block"><span class="total">0</span> <span class="total-currency"> .р</span></div>
                                     <div class="dp-button-cart__text-block">
-                                        <a href="cart.html"><span>Заказать</span></a>
+                                        <a href="/order"><span>Заказать</span></a>
                                     </div>
                                 </div>
                             </div>

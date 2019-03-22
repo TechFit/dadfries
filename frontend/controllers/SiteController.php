@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Product;
+use frontend\models\OrderForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -72,6 +73,15 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'products' => $products,
+        ]);
+    }
+
+    public function actionOrder()
+    {
+        $model = new OrderForm();
+
+        return $this->render('order', [
+            'model' => $model,
         ]);
     }
 

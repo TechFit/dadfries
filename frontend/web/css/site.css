@@ -127,3 +127,14 @@ a.desc:after {
 .menu-tabs-row {
     padding-top: 0px !important;
 }
+
+.total {
+    color: white;
+    font-size: 17px;
+    margin-right: 3px;
+}
+
+.total-currency {
+    color: white;
+    font-size: 14px;
+}
