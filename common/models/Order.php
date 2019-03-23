@@ -49,10 +49,10 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'phone' => 'Phone',
-            'address' => 'Address',
-            'comment' => 'Comment',
+            'name' => Yii::t('app', 'Имя'),
+            'phone' => Yii::t('app', 'Телефон'),
+            'address' => Yii::t('app', 'Адрес'),
+            'comment' => Yii::t('app', 'Комментарий'),
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'status' => 'Status',

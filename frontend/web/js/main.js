@@ -242,3 +242,6 @@
 
 })(jQuery);
 
+let cookie = new Cookie();
+let cart = new Cart(cookie);
+let order = new Order(cookie);

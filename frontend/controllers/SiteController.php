@@ -1,19 +1,14 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Order;
 use common\models\Product;
 use frontend\models\OrderForm;
 use Yii;
-use yii\base\InvalidArgumentException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+
 
 /**
  * Site controller
@@ -31,9 +26,13 @@ class SiteController extends Controller
                 'only' => ['index'],
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index', 'order', 'error'],
                         'allow' => true,
-                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['index', 'order', 'error'],
+                        'allow' => true,
+                        'roles' => ['@'],
                     ],
                 ],
             ],
@@ -79,6 +78,13 @@ class SiteController extends Controller
     public function actionOrder()
     {
         $model = new OrderForm();
+
+        if($model->load(Yii::$app->request->post()) && $model->save()){
+            Yii::$app->session->setFlash('success', 'You have entered data successfuly!');
+        }
+
+
+        $a = 1;
 
         return $this->render('order', [
             'model' => $model,

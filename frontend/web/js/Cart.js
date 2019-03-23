@@ -111,6 +111,7 @@ class Cart {
         }
 
         $('.dp-button-cart__price-block .total').text(current_total_price);
+
         $('.dp-cart__items-total-price span').text(current_total_price);
 
     };
