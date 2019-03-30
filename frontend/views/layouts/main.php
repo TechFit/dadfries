@@ -68,7 +68,19 @@ AppAsset::register($this);
                                     </div>
                                     <div class="dp-button-cart__price-block"><span class="total">0</span> <span class="total-currency"> .р</span></div>
                                     <div class="dp-button-cart__text-block">
-                                        <a href="/order"><span>Заказать</span></a>
+                                        <a href="cart.html"><span>Заказать</span></a>
+                                    </div>
+                                </div>
+                                <div class="ReactCollapse--collapse" style="height: auto;">
+                                    <div class="ReactCollapse--content">
+                                        <div class="dp-cart__items-list">
+                                            <div class="dp-cart__items-total-wrap">
+                                                <div class="dp-cart__items-total-text">Всего</div>
+                                                <div class="dp-cart__items-total-price">
+                                                    <span>0 </span>.р
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -79,15 +79,15 @@ class SiteController extends Controller
     {
         $model = new OrderForm();
 
+        $order_products = Yii::$app->getRequest()->getCookies()->getValue('order', (isset($_COOKIE['order']))? $_COOKIE['order']: 'order');
+
         if($model->load(Yii::$app->request->post()) && $model->save()){
             Yii::$app->session->setFlash('success', 'You have entered data successfuly!');
         }
 
-
-        $a = 1;
-
         return $this->render('order', [
             'model' => $model,
+            'order_products' => $order_products,
         ]);
     }
 
