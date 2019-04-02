@@ -8,9 +8,9 @@ class Cart {
 
         this.add_to_cart_button = $('.add-to-cart');
 
-        this.product_plus = $(document).find('[data-attr="product-buttons"] [data-attr="plus"], .dp-circle-btn.plus');
+        this.product_plus = $(document).find('[data-attr="product-buttons"] [data-attr="plus"]');
 
-        this.product_minus = $(document).find('[data-attr="product-buttons"] [data-attr="minus"], .dp-circle-btn.minus');
+        this.product_minus = $(document).find('[data-attr="product-buttons"] [data-attr="minus"]');
 
         this.load();
 
@@ -20,9 +20,10 @@ class Cart {
     increaseProductInCart = (event) => {
 
         let order_item_id = event.target.getAttribute('data-id');
-        console.log(order_item_id);
 
         let order_count_div = $('#product-' + order_item_id).find('[data-attr="product-buttons"]').find('[data-attr="count"]');
+
+        let order_count_top_div = $('.dp-cart__items-list').find('[data-id="' + order_item_id + '"]');
 
         let product_info = this.getInfoAboutProduct(order_item_id);
 
@@ -31,6 +32,10 @@ class Cart {
         current_count = parseInt(current_count) + 1;
 
         order_count_div.text(current_count);
+
+        order_count_top_div.find('.dp-circle-btn.red.mid').text(current_count);
+
+        console.log(order_count_top_div.find('.dp-circle-btn.red.mid'));
 
         let price = parseInt(product_info.price) * current_count;
 
@@ -58,6 +63,8 @@ class Cart {
             this.cookie.removeFromCookie(order_item_id);
 
             $('#product-' + order_item_id).find('[data-attr="product-buttons"]').hide();
+
+            $("[data-top-cart-id='" + order_item_id + "']").closest('.dc__cart-card-item').remove();
 
             $('#add-to-cart-' + order_item_id).show();
 
@@ -170,6 +177,10 @@ class Cart {
 
             for (let i in selected_items) {
 
+                if (!selected_items[i].item_id || selected_items[i].item_id === "" || selected_items[i].item_id === null) {
+                    continue;
+                }
+
                 let item_id = selected_items[i].item_id;
 
                 let count = selected_items[i].count;
@@ -207,6 +218,8 @@ class Cart {
         $('.dp-circle-btn.plus').on('click', this.increaseProductInCart);
 
         this.product_minus.on('click', this.decreaseProductInCart);
+
+        $('.dp-circle-btn.minus').on('click', this.decreaseProductInCart);
 
         let self = this;
 

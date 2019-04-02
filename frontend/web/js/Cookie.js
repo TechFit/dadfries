@@ -8,14 +8,19 @@ class Cookie {
     }
 
     currentCookie = () => {
-        return JSON.parse($.cookie(Cookie.ORDER_TYPE));
+        сщтщ
+        if ($.cookie(Cookie.ORDER_TYPE) && $.cookie(Cookie.ORDER_TYPE) !== "") {
+            return JSON.parse($.cookie(Cookie.ORDER_TYPE));
+        } else {
+            return this.setCookie({});
+        }
     };
 
     updateOrderCookie = (item_id, count, price, name, image)  => {
 
         let current_cookie_order = this.currentCookie();
 
-        if (current_cookie_order === null) {
+        if (current_cookie_order === null || current_cookie_order === "") {
 
             current_cookie_order = [];
 
