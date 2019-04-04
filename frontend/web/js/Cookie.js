@@ -8,7 +8,6 @@ class Cookie {
     }
 
     currentCookie = () => {
-        сщтщ
         if ($.cookie(Cookie.ORDER_TYPE) && $.cookie(Cookie.ORDER_TYPE) !== "") {
             return JSON.parse($.cookie(Cookie.ORDER_TYPE));
         } else {
@@ -20,7 +19,7 @@ class Cookie {
 
         let current_cookie_order = this.currentCookie();
 
-        if (current_cookie_order === null || current_cookie_order === "") {
+        if (Object.entries(current_cookie_order).length === 0 || current_cookie_order === null || current_cookie_order === "") {
 
             current_cookie_order = [];
 

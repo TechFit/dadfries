@@ -6,14 +6,12 @@
 
 $this->title = Yii::t('app', 'Папа Жарит');
 ?>
-<section class="ftco-menu">
+<section class="ftco-menu mb-5 pb-5">
     <div class="container">
-        <div class="row justify-content-center">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Меню</h2
-        </div>
-        </div>
         <div class="row d-md-flex">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Меню</h2
+            </div>
             <div class="col-lg-12 ftco-animate p-md-5 menu-tabs-row">
                 <div class="row">
                     <div class="col-md-12 nav-link-wrap mb-5">
@@ -39,7 +37,7 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                     <? endif ?>
                                         <? if (!empty($products['burgers'])): ?>
                                             <? foreach ($products['burgers'] AS $product): ?>
-                                                <div id="product-<?=$product['id']?>" class="col-md-4 text-center product-col">
+                                                <div id="product-<?=$product['id']?>" class="col-md-6 col-lg-4 col-sm-6 text-center product-col">
                                                     <div class="menu-wrap">
                                                         <a href="#" class="menu-img img mb-4" data-img="<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
                                                         <div class="text">

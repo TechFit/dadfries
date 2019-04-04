@@ -48,6 +48,36 @@ AppAsset::register($this);
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="/"> <img src="images/dadfries.png" alt="" style="width: 150px;"></a>
+        <div class="dp-header__item no-ma small-nav" style="display:none;">
+            <div class="dp-cart-item">
+                <div class="dp-cart-wrapper">
+                    <div class="dp-button-cart">
+                        <div class="dp-button-cart__icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 510">
+                                <path d="M153,408c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S181.05,408,153,408z M0,0v51h51l91.8,193.8L107.1,306 c-2.55,7.65-5.1,17.85-5.1,25.5c0,28.05,22.95,51,51,51h306v-51H163.2c-2.55,0-5.1-2.55-5.1-5.1v-2.551l22.95-43.35h188.7 c20.4,0,35.7-10.2,43.35-25.5L504.9,89.25c5.1-5.1,5.1-7.65,5.1-12.75c0-15.3-10.2-25.5-25.5-25.5H107.1L84.15,0H0z M408,408 c-28.05,0-51,22.95-51,51s22.95,51,51,51s51-22.95,51-51S436.05,408,408,408z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="dp-button-cart__price-block"><span class="total">0</span> <span class="total-currency"> .р</span></div>
+                        <div class="dp-button-cart__text-block">
+                            <a href="cart.html"><span>Заказать</span></a>
+                        </div>
+                    </div>
+                    <div class="ReactCollapse--collapse" style="height: auto; display: none;">
+                        <div class="ReactCollapse--content">
+                            <div class="dp-cart__items-list">
+                                <div class="dp-cart__items-total-wrap">
+                                    <div class="dp-cart__items-total-text">Всего</div>
+                                    <div class="dp-cart__items-total-price">
+                                        <span>0 </span>.р
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -57,7 +87,7 @@ AppAsset::register($this);
                 <li class="nav-item"><a href="menu.html" class="nav-link">Оставить отзыв</a></li>
                 <li class="nav-item">
                     <div class="dp-header__item no-ma">
-                        <div class="dp-cart-item dp-cart-item--opened">
+                        <div class="dp-cart-item">
                             <div class="dp-cart-wrapper">
                                 <div class="dp-button-cart">
                                     <div class="dp-button-cart__icon-wrap">
@@ -71,7 +101,7 @@ AppAsset::register($this);
                                         <a href="cart.html"><span>Заказать</span></a>
                                     </div>
                                 </div>
-                                <div class="ReactCollapse--collapse" style="height: auto;">
+                                <div class="ReactCollapse--collapse" style="height: auto; display: none;">
                                     <div class="ReactCollapse--content">
                                         <div class="dp-cart__items-list">
                                             <div class="dp-cart__items-total-wrap">

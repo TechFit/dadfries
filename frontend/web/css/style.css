@@ -704,6 +704,7 @@ pre {
 .offset-11 {
   margin-left: 91.66667%; }
 
+
 @media (min-width: 576px) {
   .col-sm {
     -ms-flex-preferred-size: 0;
@@ -7315,7 +7316,7 @@ h1, h2, h3, h4, h5,
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
-      background: #000 !important;
+      background: #0C0D0F !important;
       position: relative;
       top: 0; } }
   .ftco-navbar-light .navbar-brand {
@@ -7445,10 +7446,10 @@ h1, h2, h3, h4, h5,
     right: 0;
     left: 0;
     top: 0;
-    margin-top: -130px;
+    margin-top: -10px;
     background: #0C0D0F !important;
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    /*-webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);*/
+    /*box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);*/
     border: none; }
     .ftco-navbar-light.scrolled .nav-item > .nav-link {
       color: #fff !important; }
@@ -8731,9 +8732,19 @@ textarea.form-control {
 .img,
 .blog-img,
 .user-img {
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center center; }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand img {
+    width: 90px !important;
+  }
+
+  .small-nav {
+    display: block !important;
+  }
+}
 
 @media (max-width: 767.98px) {
   .img-about {
@@ -9657,6 +9668,32 @@ textarea.form-control {
   cursor: pointer;
 }
 
+.dp-button-cart__price-block {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: left;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 0.8em;
+  font-weight: bold;
+  padding-left: 1.5em;
+  padding-right: 1em;
+  font-size: 1.1vw;
+  border-top-left-radius: 0.4em;
+  border-bottom-left-radius: 0.4em;
+  background-color: #d51a1e;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  -ms-flex: 1;
+  flex: 1 1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+
 .dc__cart-card-close::after {
   position: absolute;
   top: 10px;
@@ -10024,3 +10061,7 @@ textarea.form-control {
   }
 }
 
+
+#v-pills-tabContent {
+  width: 100%;
+}
