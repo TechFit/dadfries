@@ -48,8 +48,6 @@ class Cart {
 
     decreaseProductInCart = (event) => {
 
-        console.log('Minus');
-
         let order_item_id = event.target.getAttribute('data-id');
 
         let current_count = $('#product-' + order_item_id).find('[data-attr="product-buttons"]').find('[data-attr="count"]').text();
@@ -117,11 +115,11 @@ class Cart {
     getInfoAboutProduct = (id) => {
         let info = {};
 
-        let product = $('#product-' + id);
+        let product = $(document.body).find('#product-' + id);
 
         info.name = product.find('.text a').text();
 
-        info.price = product.find('.price span').text();
+        info.price = parseInt(product.find('.price span').text());
 
         info.image = product.find('.menu-img').data('img');
 
@@ -216,9 +214,9 @@ class Cart {
             }
         }
 
-        $('.dp-button-cart__price-block .total').text(current_total_price);
+        $('.dp-button-cart__price-block .total').html(current_total_price);
 
-        $('.dp-cart__items-total-price span').text(current_total_price);
+        $('.dp-cart__items-total-price span').html(current_total_price);
     };
 
     events () {
