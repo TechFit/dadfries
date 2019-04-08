@@ -130,13 +130,15 @@ class Cart {
 
         let current_total_price = parseInt($('.dp-button-cart__price-block .total').text());
 
+        console.log(current_total_price);
+
         price = parseInt(price);
 
         if (price) {
             if (command === '+') {
-                current_total_price += price;
+                current_total_price = current_total_price + price;
             } else if (command === '-') {
-                current_total_price -= price;
+                current_total_price = current_total_price - price;
                 if (current_total_price < 0) {
                     current_total_price = 0;
                 }
@@ -217,6 +219,18 @@ class Cart {
         $('.dp-button-cart__price-block .total').html(current_total_price);
 
         $('.dp-cart__items-total-price span').html(current_total_price);
+
+        this.transferCart();
+    };
+
+    transferCart() {
+
+        if ($(window).width() < 576) {
+            $(".dp-header__item.no-ma").after("").insertAfter("#ftco-navbar > .container > .navbar-brand");
+        }
+        else {
+            $(".dp-header__item.no-ma").after("").appendTo("#ftco-nav > .navbar-nav li.nav-item:nth-child(3)");
+        }
     };
 
     events () {
@@ -252,6 +266,10 @@ class Cart {
                 $('.ReactCollapse--collapse').slideDown('fast');
             }
         })
+
+        $(window).on('resize', function(){
+            self.transferCart();
+        });
     }
 }
 
