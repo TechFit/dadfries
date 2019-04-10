@@ -41,6 +41,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'order' => 'site/order',
+                'index' => 'site/index',
+                'order-success' => 'site/order-success'
             ],
         ],
     ],

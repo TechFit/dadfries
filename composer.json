@@ -31,7 +31,8 @@
         "kartik-v/yii2-widget-select2": "dev-master",
         "npm-asset/bootbox": "^4.4",
         "kartik-v/yii2-date-range": "^1.6",
-        "2amigos/yii2-chartjs-widget": "^2.1"
+        "2amigos/yii2-chartjs-widget": "^2.1",
+        "telegram-bot/api": "^2.3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

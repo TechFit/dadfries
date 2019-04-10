@@ -21,7 +21,7 @@ class m190322_135856_create_order_table extends Migration
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
             'status' => $this->smallInteger()->defaultValue(0)->notNull(),
-        ]);
+        ], 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB');
     }
 
     /**

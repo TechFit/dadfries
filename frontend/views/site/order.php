@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = Yii::t('app', 'Оформление заказа');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<? if (empty($order_products)): ?>
+<? if (empty(json_decode($order_products, true))): ?>
 <section class="ftco-section">
     <div class="container">
         <div class="row">

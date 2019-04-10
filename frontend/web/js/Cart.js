@@ -35,7 +35,7 @@ class Cart {
 
         order_count_div.text(current_count);
 
-        order_count_top_div.find('.dp-circle-btn.red.mid').text(current_count);
+        order_count_top_div.find('.dp-circle-btn.mid').text(current_count);
 
         let price = parseInt(product_info.price) * current_count;
 
@@ -58,7 +58,7 @@ class Cart {
 
         current_count = parseInt(current_count) - 1;
 
-        order_count_top_div.find('.dp-circle-btn.red.mid').text(current_count);
+        order_count_top_div.find('.dp-circle-btn.mid').text(current_count);
 
         $('#product-' + order_item_id).find('[data-attr="product-buttons"]').find('[data-attr="count"]').text(current_count);
 
@@ -162,11 +162,11 @@ class Cart {
             "   <div class=\"dc_cart-card-content__qty-block\">\n" +
             "    <div class=\"dp-product-details__count-switcher dp-count-switcher\">\n" +
             "       <button class=\"dp-circle-btn minus\" data-id="+id+">\n" +
-            "         <span>-</span>\n" +
+            "         -\n" +
             "       </button>\n" +
-            "    <span class=\"dp-circle-btn red mid\">" + count +"</span>\n" +
+            "    <span class=\"dp-circle-btn own-color mid\">" + count +"</span>\n" +
             "     <button class=\"dp-circle-btn plus\" data-id="+id+">\n" +
-            "     <span>+</span>\n" +
+            "     +\n" +
             "    </button>\n" +
             "    </div>\n" +
             "   </div>\n" +
@@ -186,7 +186,7 @@ class Cart {
 
         let current_total_price = 0;
 
-        if (selected_items.length > 0) {
+        if (selected_items !== 'undefined' || Object.entries(selected_items).length !== 0) {
 
             for (let i in selected_items) {
 
@@ -239,11 +239,11 @@ class Cart {
 
         this.product_plus.on('click', this.increaseProductInCart);
 
-        $(document.body).on('click', 'button.dp-circle-btn.plus',this.increaseProductInCart);
+        $(document.body).on('click', '.dp-product-details__count-switcher .plus',this.increaseProductInCart);
 
         this.product_minus.on('click', this.decreaseProductInCart);
 
-        $(document.body).on('click', 'button.dp-circle-btn.minus', this.decreaseProductInCart);
+        $(document.body).on('click', '.dp-product-details__count-switcher .minus', this.decreaseProductInCart);
 
         let self = this;
 

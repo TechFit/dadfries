@@ -81,8 +81,16 @@ class SiteController extends Controller
 
         $order_products = Yii::$app->getRequest()->getCookies()->getValue('order', (isset($_COOKIE['order']))? $_COOKIE['order']: 'order');
 
-        if($model->load(Yii::$app->request->post()) && $model->save()){
-            Yii::$app->session->setFlash('success', 'You have entered data successfuly!');
+        if($model->load(Yii::$app->request->post())){
+
+            if ($model->save()) {
+
+                return $this->redirect(['order-success',
+                ]);
+
+            } else {
+                return $this->redirect(['error']);
+            }
         }
 
         return $this->render('order', [
@@ -99,6 +107,14 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionOrderSuccess()
+    {
+        return $this->render('order-success', [
+            'name' => Yii::t('app', 'Спасибо за заказ.'),
+            'message' => Yii::t('app', 'Спасибо за заказ.'),
+        ]);
     }
 
     private function prepareProducts(array $items): array

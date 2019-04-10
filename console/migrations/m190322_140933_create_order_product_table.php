@@ -20,7 +20,7 @@ class m190322_140933_create_order_product_table extends Migration
             'id' => $this->primaryKey(),
             'product_id' => $this->integer()->notNull(),
             'order_id' => $this->integer()->notNull(),
-        ]);
+        ], 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB');
 
         // creates index for column `product_id`
         $this->createIndex(

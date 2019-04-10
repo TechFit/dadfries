@@ -21,24 +21,24 @@ AppAsset::register($this);
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="/css/aos.css">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/css/jquery.timepicker.css">
 
 
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/icomoon.css">
+    <link rel="stylesheet" href="/css/style.css">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -47,14 +47,14 @@ AppAsset::register($this);
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/"> <img src="images/dadfries.png" alt="" style="width: 150px;"></a>
+        <a class="navbar-brand" href="/"> <img src="/images/dadfries.png" alt="" style="width: 150px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Главная</a></li>
-                <li class="nav-item"><a href="menu.html" class="nav-link">Оставить отзыв</a></li>
+                <li class="nav-item active"><a href="/" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="" class="nav-link">Оставить отзыв</a></li>
                 <li class="nav-item">
                     <div class="dp-header__item no-ma">
                         <div class="dp-cart-item">
@@ -68,7 +68,7 @@ AppAsset::register($this);
                                     </div>
                                     <div class="dp-button-cart__price-block"><span class="total">0</span> <span class="total-currency"> .р</span></div>
                                     <div class="dp-button-cart__text-block">
-                                        <a href="cart.html"><span>Заказать</span></a>
+                                        <a href="/order"><span style="color: white">Заказать</span></a>
                                     </div>
                                 </div>
                                 <div class="ReactCollapse--collapse" style="height: auto; display: none;">
@@ -118,6 +118,17 @@ AppAsset::register($this);
             </div>
             <div class="col-lg-4 col-md-4 ">
                 <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2" style="color: transparent;">Контакты</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li  style="height: 34px;"><span class="icon icon-map-marker"></span><span class="text">г. Конаково, ул. Ленина 3</span></li>
+                            <li  style="height: 34px;"><a href="#"><span class="icon icon-phone"></span><span class="text">8 965 723 51 61</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 ">
+                <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Время работы</h2>
                     <div class="block-23 mb-3">
                         <ul>
@@ -156,10 +167,10 @@ AppAsset::register($this);
 <!--<script src="js/scrollax.min.js"></script>-->
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
 <!--<script src="js/google-map.js"></script>-->
-<script src="js/Cookie.js"></script>
-<script src="js/Order.js"></script>
-<script src="js/Cart.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/Cookie.js"></script>
+<script src="/js/Order.js"></script>
+<script src="/js/Cart.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
