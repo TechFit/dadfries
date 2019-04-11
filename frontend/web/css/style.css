@@ -10027,6 +10027,9 @@ textarea.form-control {
     width: 1.9em;
     height: 1.9em;
   }
+  .navbar-brand {
+    margin-right: 8px;
+  }
 }
 
 

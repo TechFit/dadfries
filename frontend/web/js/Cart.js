@@ -255,6 +255,19 @@ class Cart {
         //     console.log(e); // then e.srcElement.className has the class
         // });
 
+        $(document).mouseup(function(e)
+        {
+            var container = $('.ReactCollapse--collapse');
+
+            // if the target of the click isn't the container nor a descendant of the container
+            if (!container.is(e.target) && container.has(e.target).length === 0)
+            {
+                $('.ReactCollapse--collapse').css("height", "");
+                $('.ReactCollapse--collapse').slideUp('fast');
+                $('.dp-cart-item').removeClass('dp-cart-item--opened');
+            }
+        });
+
         this.cart_button.on('click', function () {
             if ($('.ReactCollapse--collapse').is(':visible')) {
                 $('.ReactCollapse--collapse').css("height", "");
