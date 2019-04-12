@@ -109,6 +109,14 @@ class Cart {
 
         $('#add-to-cart-' + id).show();
 
+        let price = parseInt($("[data-top-cart-id='" + id + "']").find('.dc_cart-card-content__price-block-nums').text());
+
+        let product = $(document.body).find('#product-' + id);
+
+        product.find('[data-attr="product-buttons"] [data-attr="count"]').text(0);
+
+        this.updateTopTotalPrice(price, '-');
+
         $("[data-top-cart-id='" + id + "']").closest('.dc__cart-card-item').remove();
     };
 
@@ -225,7 +233,7 @@ class Cart {
 
     transferCart() {
 
-        if ($(window).width() < 576) {
+        if ($(window).width() < 1024) {
             $(".dp-header__item.no-ma").after("").insertAfter("#ftco-navbar > .container > .navbar-brand");
         }
         else {
@@ -251,6 +259,8 @@ class Cart {
             self.removeItemFromTopCart($(this).attr('data-top-cart-id'));
         });
 
+        $('.ftco-menu .tab-content a').click(false);
+
         // $(window).click(function(e) {
         //     console.log(e); // then e.srcElement.className has the class
         // });
@@ -269,16 +279,25 @@ class Cart {
         });
 
         this.cart_button.on('click', function () {
+
             if ($('.ReactCollapse--collapse').is(':visible')) {
                 $('.ReactCollapse--collapse').css("height", "");
                 $('.ReactCollapse--collapse').slideUp('fast');
                 $('.dp-cart-item').removeClass('dp-cart-item--opened');
             } else {
-                $('.ReactCollapse--collapse').css("height", "auto");
+
+                if ($('.dc__cart-card-item').length > 4) {
+                    $('.dp-cart__items-list').css("height", "400px");
+                    $('.dp-cart__items-list').css("overflow-y", "scroll");
+                } else {
+                    $('.ReactCollapse--collapse').css("height", "auto");
+                }
+
                 $('.dp-cart-item').addClass('dp-cart-item--opened');
                 $('.ReactCollapse--collapse').slideDown('fast');
+
             }
-        })
+        });
 
         $(window).on('resize', function(){
             self.transferCart();

@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\widgets\MaskedInput;
 
 $this->title = Yii::t('app', 'Оформление заказа');
 $this->params['breadcrumbs'][] = $this->title;
@@ -28,17 +29,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h3 class="mb-4 billing-heading">Оформление доставки</h3>
                     <div class="row align-items-end">
                         <div class="col-md-6">
-                            <?= $form->field($model, 'name') ?>
+                            <?= $form->field($model, 'name')->textInput(['autocomplete' => "off"]) ?>
                         </div>
                         <div class="col-md-6">
-                            <?= $form->field($model, 'phone') ?>
+                            <?= $form->field($model, 'phone')->widget(MaskedInput::className(), [
+                                'mask' => '(999) 999-9999'
+                            ]) ?>
                         </div>
                         <div class="w-100"></div>
                         <div class="col-md-6">
-                            <?= $form->field($model, 'address') ?>
+                            <?= $form->field($model, 'delivery')->textInput(['autocomplete' => "false"]) ?>
                         </div>
                         <div class="col-md-6">
-                            <?= $form->field($model, 'comment') ?>
+                            <?= $form->field($model, 'comment')->textarea(['autocomplete' => "off"]) ?>
                         </div>
                         <div class="col-md-6">
                             <?= Html::submitButton(Yii::t('app', 'Заказать'), ['class' => 'btn btn-primary py-3 px-4']) ?>

@@ -79,7 +79,7 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                         <? endif ?>
                                         <? if (!empty($products['drinks'])): ?>
                                             <? foreach ($products['drinks'] AS $product): ?>
-                                                <div id="product-<?=$product['id']?>" class="col-md-4 text-center product-col">
+                                                <div id="product-<?=$product['id']?>" class="col-md-6 col-lg-4 col-sm-6 text-center product-col">
                                                     <div class="menu-wrap">
                                                         <a href="#" class="menu-img img mb-4" data-img="<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
                                                         <div class="text">
@@ -121,7 +121,7 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                         <? endif ?>
                                         <? if (!empty($products['fryer'])): ?>
                                             <? foreach ($products['fryer'] AS $product): ?>
-                                            <div id="product-<?=$product['id']?>" class="col-md-4 text-center product-col">
+                                            <div id="product-<?=$product['id']?>" class="col-md-6 col-lg-4 col-sm-6 text-center product-col">
                                                 <div class="menu-wrap">
                                                     <a href="#" class="menu-img img mb-4" data-img="<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
                                                     <div class="text">
@@ -163,7 +163,7 @@ $this->title = Yii::t('app', 'Папа Жарит');
                                         <? endif ?>
                                         <? if (!empty($products['europe'])): ?>
                                             <? foreach ($products['europe'] AS $product): ?>
-                                            <div id="product-<?=$product['id']?>" class="col-md-4 text-center product-col">
+                                            <div id="product-<?=$product['id']?>" class="col-md-6 col-lg-4 col-sm-6 text-center product-col">
                                                 <div class="menu-wrap">
                                                     <a href="#" class="menu-img img mb-4" data-img="<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>" style="background-image: url(<?= $product['photo_base_url'] . '/' . $product['photo_path'] ?>);"></a>
                                                     <div class="text">

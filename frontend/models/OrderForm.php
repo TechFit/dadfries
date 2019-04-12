@@ -14,6 +14,7 @@ class OrderForm extends Model
     public $name;
     public $phone;
     public $address;
+    public $delivery;
     public $comment;
 
     /**
@@ -22,10 +23,13 @@ class OrderForm extends Model
     public function rules()
     {
         return [
-            [['name', 'phone', 'address'], 'required'],
-            [['name', 'phone'], 'string', 'max' => 255],
-            [['address'], 'string', 'max' => 1024],
-            [['comment'], 'string', 'max' => 2048],
+            ['name', 'required', 'message' => Yii::t('app', 'Укажите, пожалуйста, имя')],
+            ['phone', 'required', 'message' => Yii::t('app', 'Укажите, пожалуйста, телефон')],
+            ['delivery', 'required', 'message' => Yii::t('app', 'Укажите, пожалуйста, адрес доставки')],
+            ['name', 'string', 'length' => [3, 24], 'tooShort' => Yii::t('app', 'Минимальная длина имени 3 символа')],
+            ['delivery', 'string', 'length' => [5, 255], 'tooShort' => Yii::t('app', 'Минимальная длина имени 5 символа')],
+            ['comment', 'string', 'length' => [5, 1024], 'tooShort' => Yii::t('app', 'Минимальная длина имени 5 символа')],
+            [['address'], 'safe'],
         ];
     }
 
@@ -38,7 +42,7 @@ class OrderForm extends Model
             'id' => 'ID',
             'name' => Yii::t('app', 'Имя'),
             'phone' => Yii::t('app', 'Телефон'),
-            'address' => Yii::t('app', 'Адрес'),
+            'delivery' => Yii::t('app', 'Адрес доставки'),
             'comment' => Yii::t('app', 'Комментарий'),
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
@@ -76,7 +80,7 @@ class OrderForm extends Model
 
                     $order_db->phone = $this->phone;
 
-                    $order_db->address = $this->address;
+                    $order_db->address = $this->delivery;
 
                     $order_db->comment = $this->comment;
 
@@ -116,15 +120,15 @@ class OrderForm extends Model
 
                     $message .= $order_list . "\n";
 
-                    $message .= "<b>Итого</b> - " . $fullPrice . " .р \n\n";
+                    $message .= "<b>Итого</b> - " . $fullPrice . " .р \n";
 
-                    $message .= "Клиент \n";
+                    $message .= "_________________________ \n";
 
                     $message .= "Имя: " . $this->name . "\n";
                     $message .= "Телефон: " . $this->phone . "\n";
-                    $message .= "Адрес: " . $this->address . "\n";
+                    $message .= "Адрес: " . $this->delivery . "\n";
                     if ($this->comment) {
-                        $message .= "Адрес: " . $this->comment . "\n";
+                        $message .= "Комментарий: " . $this->comment . "\n";
                     }
 
                     $telegram_bot->sendMessage('-1001235606537',  $message, 'html');

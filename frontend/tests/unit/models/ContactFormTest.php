@@ -2,13 +2,13 @@
 namespace frontend\tests\unit\models;
 
 use Yii;
-use frontend\models\ContactForm;
+use frontend\models\ReviewForm;
 
 class ContactFormTest extends \Codeception\Test\Unit
 {
     public function testSendEmail()
     {
-        $model = new ContactForm();
+        $model = new ReviewForm();
 
         $model->attributes = [
             'name' => 'Tester',

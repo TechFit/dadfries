@@ -4484,7 +4484,8 @@ button.close {
   .modal-dialog-centered {
     min-height: calc(100% - (1.75rem * 2)); }
   .modal-sm {
-    max-width: 300px; } }
+    max-width: 300px; }
+}
 
 @media (min-width: 992px) {
   .modal-lg {
@@ -8423,7 +8424,7 @@ h1, h2, h3, h4, h5,
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border: transparent !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
   padding-right: 0;
   padding-left: 0; }
   .form-control:focus, .form-control:active {
@@ -8741,10 +8742,23 @@ textarea.form-control {
     width: 71px !important;
   }
 
+  .dc_cart-card-content__title {
+    max-width: 110px !important;
+  }
+
   .small-nav {
     display: block !important;
   }
 }
+
+/*.ReactCollapse--collapse {*/
+/*  height: 445px !important;*/
+/*}*/
+
+/*.dp-cart__items-list {*/
+/*  overflow-y: scroll;*/
+/*  height: 400px !important;*/
+/*}*/
 
 @media (max-width: 767.98px) {
   .img-about {
@@ -9384,6 +9398,10 @@ textarea.form-control {
 }
 
 @media screen and (max-width: 992px) {
+  .menu-img {
+    background-size: 100%;
+
+  }
   .dp-header {
     height: 100%;
     -ms-flex-pack: justify;
@@ -9514,11 +9532,14 @@ textarea.form-control {
   -ms-flex-align: baseline;
   align-items: baseline;
   padding-bottom: 1em;
+  height: 60px;
+  margin: 0 10px;
+  border-top: 1px solid;
 }
 
 .dp-cart__items-total-wrap span {
   font-weight: bold;
-  font-size: 1.75em;
+  font-size: 1.45em;
 }
 
 .dp-cart-wrapper {
@@ -10064,6 +10085,9 @@ textarea.form-control {
   }
 }
 
+.help-block-error {
+  color: red;
+}
 
 #v-pills-tabContent {
   width: 100%;
@@ -10078,4 +10102,9 @@ textarea.form-control {
 .own-color {
   background-color: #c49b63;
   color: white;
+}
+
+
+.dp-cart-wrapper a {
+  outline: none !important;
 }

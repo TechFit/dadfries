@@ -42,7 +42,8 @@ return [
             'rules' => [
                 'order' => 'site/order',
                 'index' => 'site/index',
-                'order-success' => 'site/order-success'
+                'order-success' => 'site/order-success',
+                'review' => 'site/review'
             ],
         ],
     ],

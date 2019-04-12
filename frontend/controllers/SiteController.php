@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\models\Order;
 use common\models\Product;
 use frontend\models\OrderForm;
+use frontend\models\ReviewForm;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -104,9 +105,28 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionAbout()
+    public function actionReview()
     {
-        return $this->render('about');
+        $model = new ReviewForm();
+
+        if($model->load(Yii::$app->request->post())){
+
+            if ($model->save()) {
+
+                Yii::$app->session->setFlash('success', 'Спасибо за Ваше сообщение.');
+
+                return $this->refresh();
+
+            } else {
+
+                Yii::$app->session->setFlash('error', 'Ошибка.');
+
+            }
+        }
+
+        return $this->render('review', [
+            'model' => $model
+        ]);
     }
 
     public function actionOrderSuccess()
