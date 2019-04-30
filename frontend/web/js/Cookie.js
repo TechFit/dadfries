@@ -7,7 +7,7 @@ class Cookie {
         return 'order';
     }
 
-    currentCookie = () => {
+    currentCookie () {
         if ($.cookie(Cookie.ORDER_TYPE) && $.cookie(Cookie.ORDER_TYPE) !== "") {
             return JSON.parse($.cookie(Cookie.ORDER_TYPE));
         } else {
@@ -15,7 +15,7 @@ class Cookie {
         }
     };
 
-    updateOrderCookie = (item_id, count, price, name, image)  => {
+    updateOrderCookie (item_id, count, price, name, image) {
 
         let current_cookie_order = this.currentCookie();
 
@@ -43,7 +43,7 @@ class Cookie {
         }
     };
 
-    removeFromCookie = (id) => {
+    removeFromCookie (id) {
 
         let current_cookie_order = this.currentCookie();
 
@@ -60,7 +60,7 @@ class Cookie {
         }
     };
 
-    setCookie = (data) => {
+    setCookie (data) {
         $.cookie(Cookie.ORDER_TYPE, JSON.stringify(data), {expires: 1, path: '/'});
     }
 }

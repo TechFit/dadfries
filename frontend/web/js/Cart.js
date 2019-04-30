@@ -19,7 +19,7 @@ class Cart {
         this.events();
     }
 
-    increaseProductInCart = (event) => {
+    increaseProductInCart (event) {
 
         let order_item_id = event.target.getAttribute('data-id');
 
@@ -46,7 +46,7 @@ class Cart {
         this.cookie.updateOrderCookie(order_item_id, current_count, product_info.price, product_info.name, product_info.image);
     };
 
-    decreaseProductInCart = (event) => {
+    decreaseProductInCart (event) {
 
         let order_item_id = event.target.getAttribute('data-id');
 
@@ -83,7 +83,9 @@ class Cart {
         }
     };
 
-    addToCart = (event)  => {
+    addToCart (event) {
+
+        console.log(this);
 
         let product_id = event.target.getAttribute('data-id');
 
@@ -101,7 +103,7 @@ class Cart {
 
     };
 
-    removeItemFromTopCart = (id) => {
+    removeItemFromTopCart (id) {
 
         this.cookie.removeFromCookie(id);
 
@@ -120,7 +122,7 @@ class Cart {
         $("[data-top-cart-id='" + id + "']").closest('.dc__cart-card-item').remove();
     };
 
-    getInfoAboutProduct = (id) => {
+    getInfoAboutProduct (id) {
         let info = {};
 
         let product = $(document.body).find('#product-' + id);
@@ -134,7 +136,7 @@ class Cart {
         return info;
     };
 
-    updateTopTotalPrice = (price, command) => {
+    updateTopTotalPrice (price, command) {
 
         let current_total_price = parseInt($('.dp-button-cart__price-block .total').text());
 
@@ -159,7 +161,7 @@ class Cart {
 
     };
 
-    insertItemToTopCart = (id, name, price, count) => {
+    insertItemToTopCart (id, name, price, count) {
 
         let item = "" +
             "<div class=\"dc__cart-card-item\"  data-top-cart-id="+id+">\n" +
@@ -189,7 +191,7 @@ class Cart {
         $('.dp-cart__items-list').prepend(item);
     };
 
-    load = () => {
+    load () {
         let selected_items = this.cookie.currentCookie();
 
         let current_total_price = 0;
@@ -243,7 +245,7 @@ class Cart {
 
     events () {
 
-        this.add_to_cart_button.on('click', this.addToCart);
+        this.add_to_cart_button.on('click', this.addToCart.bind(this));
 
         this.product_plus.on('click', this.increaseProductInCart);
 
