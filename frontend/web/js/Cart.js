@@ -17,7 +17,7 @@ class Cart {
         this.load();
 
         this.events();
-    }
+    };
 
     increaseProductInCart (event) {
 
@@ -247,13 +247,13 @@ class Cart {
 
         this.add_to_cart_button.on('click', this.addToCart.bind(this));
 
-        this.product_plus.on('click', this.increaseProductInCart);
+        this.product_plus.on('click', this.increaseProductInCart.bind(this));
 
-        $(document.body).on('click', '.dp-product-details__count-switcher .plus',this.increaseProductInCart);
+        $(document.body).on('click', '.dp-product-details__count-switcher .plus',this.increaseProductInCart.bind(this));
 
-        this.product_minus.on('click', this.decreaseProductInCart);
+        this.product_minus.on('click', this.decreaseProductInCart.bind(this));
 
-        $(document.body).on('click', '.dp-product-details__count-switcher .minus', this.decreaseProductInCart);
+        $(document.body).on('click', '.dp-product-details__count-switcher .minus', this.decreaseProductInCart.bind(this));
 
         let self = this;
 

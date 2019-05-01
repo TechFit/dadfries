@@ -17,6 +17,8 @@ class Cookie {
 
     updateOrderCookie (item_id, count, price, name, image) {
 
+        console.log(this);
+
         let current_cookie_order = this.currentCookie();
 
         if (Object.entries(current_cookie_order).length === 0 || current_cookie_order === null || current_cookie_order === "") {
