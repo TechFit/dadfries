@@ -9767,7 +9767,7 @@ textarea.form-control {
   width: 1.55vw;
   height: 1.55vw;
   background: #fff;
-  font-family: 'Roboto Condensed';
+  /*font-family: 'Roboto Condensed';*/
   font-weight: bold;
   font-size: 1.1vw;
   line-height: 1px;
@@ -9956,7 +9956,7 @@ textarea.form-control {
   width: 1.55vw;
   height: 1.55vw;
   background: #fff;
-  font-family: 'Roboto Condensed';
+  /*font-family: 'Roboto Condensed';*/
   font-weight: bold;
   font-size: 1.1vw;
   line-height: 1px;

@@ -4,6 +4,8 @@ class Cart {
 
     constructor (cookie) {
 
+        console.log(this);
+        
         this.cookie = cookie;
 
         this.cart_button = $('.dp-button-cart__price-block');
@@ -17,6 +19,12 @@ class Cart {
         this.load();
 
         this.events();
+
+        let self = this;
+
+        $(window).on('resize', function(){
+            self.transferCart();
+        });
     };
 
     increaseProductInCart (event) {
@@ -192,6 +200,9 @@ class Cart {
     };
 
     load () {
+        
+        console.log(this);
+        
         let selected_items = this.cookie.currentCookie();
 
         let current_total_price = 0;
@@ -233,7 +244,7 @@ class Cart {
         this.transferCart();
     };
 
-    transferCart() {
+    transferCart () {
 
         if ($(window).width() < 1024) {
             $(".dp-header__item.no-ma").after("").insertAfter("#ftco-navbar > .container > .navbar-brand");
@@ -301,9 +312,6 @@ class Cart {
             }
         });
 
-        $(window).on('resize', function(){
-            self.transferCart();
-        });
     }
 }
 

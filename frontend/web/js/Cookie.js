@@ -63,7 +63,7 @@ class Cookie {
     };
 
     setCookie (data) {
-        $.cookie(Cookie.ORDER_TYPE, JSON.stringify(data), {expires: 1, path: '/'});
+        $.cookie(Cookie.ORDER_TYPE, JSON.stringify(data), {expires: 1});
     }
 }
 
