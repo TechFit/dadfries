@@ -1,3 +1,3 @@
 http://папа-жарит.рф
 
-Yii2 + Js/jquery
+Yii2 + shop cart with js/jquery
